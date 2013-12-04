@@ -15,8 +15,8 @@ exports.offset = offset
 
 function position (element) {
 	var box = element.getBoundingClientRect()
-	  , scrollTop = window.scrollY
-	  , scrollLeft = window.scrollX
+	  , scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop
+	  , scrollLeft = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft
 	// Has to be copied since ClientRects is immutable
 	return {
 		top: box.top + scrollTop,
